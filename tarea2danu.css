@@ -1,0 +1,75 @@
+
+        /* ------------- Estilos Grid CSS para Tarea N°2 ------------- */
+
+/* Contenedor */
+
+.wrapper{
+  display:grid;
+  grid-template-columns:20% auto 160px; /*Distribución Lateral 1, Centro y Lateral 2*/
+  grid-auto-rows: minmax(120px, auto);
+  max-width: 1140px;
+  height: auto;
+  grid-gap: 1em; /*Espacios entre Cajitas*/
+  margin-left: auto;   /*Para Centrar*/
+  margin-right: auto;  /*Para Centrar*/
+}
+
+/* Cajitas */
+
+.box1{
+  background-color: #ffb399; /*Color de Fondo*/
+  grid-column: 1/4;
+  grid-area: box1  /*Reordenar*/
+}
+
+.box2{
+  background-color: #b3ff99;
+  grid-row: 2/4;
+  grid-area: box2
+}
+
+.box3{
+  background-color: #ffff99;
+  grid-row: 2/4;
+  grid-area: box3
+}
+
+.box4{
+  background-color: #99b3ff;
+  grid-row: 2/4;
+  grid-area: box4
+}
+
+.box5{
+  background-color: #cc99ff;
+  grid-column: 1/4;
+  grid-area: box5
+}
+
+             /* ---------------- Responsive ---------------- */
+
+/*Estructura Flexible*/
+
+@media (min-width: 700px){
+.wrapper{
+grid-template-areas:   /*Orden sin Encogerse*/
+"box1 box1 box1"
+"box2 box3 box4"
+"box2 box3 box4"
+"box5 box5 box5";
+}
+}
+
+/* Encogerse */
+
+@media (max-width: 700px){
+.wrapper{
+grid-template-rows: repeat(5, 120px); /*5 filas de 120 px al Encogerse*/
+grid-template-areas: /*Nuevo Orden*/
+"box1 box1 box1"
+"box2 box2 box2"
+"box3 box3 box3"
+"box4 box4 box4"
+"box5 box5 box5";
+}
+}
